@@ -14,9 +14,25 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-// $router->get('/', function () use ($router) {
-//     return $router->app->version();
-// });
+$router->get('/', function () use ($router) {
+    return response()->json([
+        'title' => 'Dummy RestApi for Newbies',
+        'parameter' => [
+            'name   : String',
+            'desc   : String',
+            'price  : double/integer',
+            'stock  : integer'
+        ],
+        'api_list' => [
+            '[GET]  http://dummyrest.noorraihan.com/api/product/all     :: get all products',
+            '[GET]  http://dummyrest.noorraihan.com/api/product/:id     :: get specific product by id',
+            '[POST] http://dummyrest.noorraihan.com/api/product         :: insert new product',
+            '[PUT]  http://dummyrest.noorraihan.com/api/product/:id     :: update existed product by id',
+            '[DELETE] http://dummyrest.noorraihan.com/api/product/:id   :: delete existed product by id',
+            '[DELETE] http://dummyrest.noorraihan.com/api/product/all   :: delete all product'
+        ]
+    ]);
+});
 
 
 $router->group(['prefix' => 'api'], function () use ($router) {
