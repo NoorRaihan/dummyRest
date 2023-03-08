@@ -41,6 +41,6 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->post('product/store', ['uses' => 'ProductController@store']);
     $router->get('product/show/{id}', ['uses' => 'ProductController@show']);
     $router->put('product/update/{id}', ['uses' => 'ProductController@update']);
-    $router->delete('product/delete/{id}', ['uses' => 'ProductController@destroy']);
     $router->delete('product/delete/all', ['uses' => 'ProductController@destroyAll']);
+    $router->delete('product/delete/{id}', ['uses' => 'ProductController@destroy']);
 });
