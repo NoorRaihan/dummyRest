@@ -24,12 +24,12 @@ $router->get('/', function () use ($router) {
             'stock  : integer'
         ],
         'api_list' => [
-            '[GET]  http://dummyrest.noorraihan.com/api/product/all     :: get all products',
-            '[GET]  http://dummyrest.noorraihan.com/api/product/:id     :: get specific product by id',
-            '[POST] http://dummyrest.noorraihan.com/api/product         :: insert new product',
-            '[PUT]  http://dummyrest.noorraihan.com/api/product/:id     :: update existed product by id',
-            '[DELETE] http://dummyrest.noorraihan.com/api/product/:id   :: delete existed product by id',
-            '[DELETE] http://dummyrest.noorraihan.com/api/product/all   :: delete all product'
+            '[GET]  http://dummyrest.noorraihan.com/api/product/all            :: get all products',
+            '[GET]  http://dummyrest.noorraihan.com/api/product/show/:id       :: get specific product by id',
+            '[POST] http://dummyrest.noorraihan.com/api/product/store          :: insert new product',
+            '[PUT]  http://dummyrest.noorraihan.com/api/product/update/:id     :: update existed product by id',
+            '[DELETE] http://dummyrest.noorraihan.com/api/product/delete/:id   :: delete existed product by id',
+            '[DELETE] http://dummyrest.noorraihan.com/api/product/delete/all   :: delete all product'
         ]
     ]);
 });
@@ -38,9 +38,9 @@ $router->get('/', function () use ($router) {
 $router->group(['prefix' => 'api'], function () use ($router) {
 
     $router->get('product/all', ['uses' => 'ProductController@index']);
-    $router->post('product', ['uses' => 'ProductController@store']);
-    $router->get('product/{id}', ['uses' => 'ProductController@show']);
-    $router->put('product/{id}', ['uses' => 'ProductController@update']);
-    $router->delete('product/{id}', ['uses' => 'ProductController@destroy']);
-    $router->delete('product/all', ['uses' => 'ProductController@destroyAll']);
+    $router->post('product/store', ['uses' => 'ProductController@store']);
+    $router->get('product/show/{id}', ['uses' => 'ProductController@show']);
+    $router->put('product/update/{id}', ['uses' => 'ProductController@update']);
+    $router->delete('product/delete/{id}', ['uses' => 'ProductController@destroy']);
+    $router->delete('product/delete/all', ['uses' => 'ProductController@destroyAll']);
 });
